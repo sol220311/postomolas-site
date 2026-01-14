@@ -1,0 +1,629 @@
+/* =============================
+   CONFIGURAÇÕES GERAIS
+============================= */
+
+*{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #F2F2F2;
+  color: #000;
+}
+
+#wrapper{
+  width: 100%;
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-areas:
+    "banner"
+    "menu"
+    "content"
+    "footer";
+
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+/* =============================
+ HEADER
+============================= */
+
+header{
+  grid-area: banner;
+  display: grid;
+
+  grid-template-areas: "logo title";
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+
+  background-color: #003147;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+header img#logo{
+  grid-area: logo;
+  width: 120px;
+  height: auto;
+  background-color: white;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+header h1{
+  grid-area: title;
+  color: white;
+  font-size: 2.2rem;
+  text-align: right;
+  padding-right: 1rem;
+}
+
+/* =============================
+ MENU
+============================= */
+
+nav{
+  grid-area: menu;
+  background-color: #005a87;
+  border-radius: 6px;
+}
+
+nav ul{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 60px;
+}
+
+nav a{
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+
+  display: inline-block;     /* evita “encolher” no active */
+  padding: 10px 16px;
+  line-height: 1;
+  border-radius: 4px;
+
+  transition: 0.3s ease;
+}
+
+nav a:hover{
+  background-color: #003147;
+}
+
+nav a.active{
+  background-color: #003147; /* destaque da página atual */
+}
+
+/* =============================
+ HOME PAGE - MAIN
+============================= */
+
+#homemain{
+  grid-area: content;
+  display: grid;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* HERO */
+#home-article1{
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+#home-article1 img{
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+#home-article1::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0, 49, 71, 0.55);
+}
+
+#home-article1 h2{
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+  z-index: 2;
+
+  color: #fff;
+  font-size: 2rem;
+  max-width: 900px;
+  line-height: 1.2;
+
+  background: rgba(0,0,0,0.25);
+  padding: 12px 16px;
+  border-radius: 10px;
+}
+
+/* CARD (texto + imagem) */
+#home-article2{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  align-items: center;
+
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+#home-article2 img{
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 14px;
+}
+
+#home-article2 h3{
+  color: #003147;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+/* =============================
+ ABOUT PAGE - MAIN
+ (AJUSTADO para o seu HTML)
+============================= */
+
+#aboutmain{
+  grid-area: content;
+  padding: 1rem;
+  display: grid;
+  gap: 2rem;
+}
+
+/* HERO */
+.about-hero{
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 420px;
+}
+
+.about-hero img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.about-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.45);
+}
+
+.about-hero h1{
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  color: white;
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+/* INTRO (seu HTML usa about-intro) */
+.about-intro{
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+
+.about-intro h2{
+  color: #003147;
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.about-intro h2 span{
+  color: #00a6e0;
+}
+
+.about-intro p{
+  color: #003147;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* BLOCO AMARELO (seu HTML usa about-highlight) */
+.about-highlight{
+  background: #fff;          /* tira o amarelo */
+  border-radius: 14px;
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 2rem;
+  align-items: center;
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+
+.about-highlight .about-image img{
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+.about-highlight .about-text h3{
+  color: #003147;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.about-highlight .about-text p{
+  color: #003147;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+/* =============================
+ SERVICES PAGE - MAIN
+ (id no HTML: servicesmain)
+============================= */
+
+#servicesmain{
+  grid-area: content;
+  padding: 1rem;
+  display: grid;
+  gap: 2rem;
+}
+
+/* HERO */
+.services-hero{
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 380px;
+}
+
+.services-hero img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.services-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0, 49, 71, 0.55);
+}
+
+.services-hero h1{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+/* INTRO */
+.services-intro{
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.services-intro h2{
+  color: #003147;
+  font-size: 2.3rem;
+  margin-bottom: 1rem;
+}
+
+.services-intro p{
+  color: #003147;
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+}
+
+/* GRID CARDS */
+.services-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.service-card{
+  position: relative;
+  height: 260px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ccc;
+}
+
+.service-card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.service-label{
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+
+  background: rgba(255, 255, 255, 0.85);
+  padding: 14px 16px;
+  border-radius: 12px;
+
+  color: #003147;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.service-label span{
+  display: block;
+}
+
+/* =============================
+ CONTACT PAGE - MAIN
+============================= */
+
+#contactmain{
+  grid-area: content;
+  padding: 1rem;
+  display: grid;
+  gap: 2.5rem;
+}
+
+/* HERO */
+.contact-hero{
+  position: relative;
+  height: 380px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.contact-hero img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.contact-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0, 49, 71, 0.55);
+}
+
+.contact-hero h1{
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size: 3rem;
+  letter-spacing: 2px;
+}
+
+/* GRID */
+.contact-grid{
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* infos */
+.contact-info{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.info-item h2{
+  color: #003147;
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+.info-item p{
+  color: #003147;
+  line-height: 1.5;
+}
+
+/* form box */
+.contact-formbox{
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.contact-formbox h2{
+  color: #003147;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.contact-formbox p{
+  color: #003147;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+/* form */
+#contactform{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-row{
+  display: grid;
+  gap: 0.35rem;
+}
+
+.form-full{
+  grid-column: 1 / -1;
+}
+
+label{
+  color: #003147;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+input, textarea{
+  width: 100%;
+  padding: 0.85rem;
+  border-radius: 10px;
+  border: 1px solid #d6d6d6;
+  background: #f7f7f7;
+  color: #003147;
+}
+
+/* botão */
+button{
+  grid-column: 1 / -1;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: #00a6e0;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover{
+  background: #003147;
+}
+
+/* =============================
+ FOOTER
+============================= */
+
+footer{
+  grid-area: footer;
+
+  display: grid;
+  grid-template-areas: "policy right";
+  gap: 1rem;
+  padding: 1rem;
+
+  background-color: #003147;
+  border-radius: 6px;
+  margin-top: 1rem;
+  color: #fff;
+}
+
+footer h2,
+footer p,
+footer a,
+footer strong{
+  color: #fff;
+}
+
+#policy{ grid-area: policy; }
+#right{ grid-area: right; text-align: right; }
+
+footer a{
+  text-decoration: none;
+}
+
+footer a:hover{
+  text-decoration: underline;
+}
+
+/* =============================
+ RESPONSIVIDADE (ÚNICA)
+============================= */
+
+@media (max-width: 700px){
+
+  header{
+    grid-template-areas:
+      "logo"
+      "title";
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  header h1{
+    text-align: center;
+    padding: 0;
+  }
+
+  nav ul{
+    flex-direction: column;
+    height: auto;
+    padding: 1rem;
+    gap: 0.5rem;
+  }
+
+  /* HOME */
+  #home-article1 img{ height: 280px; }
+  #home-article1 h2{ font-size: 1.3rem; left: 16px; bottom: 16px; }
+  #home-article2{ grid-template-columns: 1fr; }
+  #home-article2 img{ height: 220px; }
+
+  /* ABOUT */
+  .about-hero{ height: 280px; }
+  .about-hero h1{ font-size: 2rem; }
+  .about-highlight{ grid-template-columns: 1fr; text-align: center; }
+  .about-highlight .about-image img{ height: 220px; }
+
+  /* SERVICES */
+  .services-hero{ height: 260px; }
+  .services-hero h1{ font-size: 2rem; }
+  .services-grid{ grid-template-columns: 1fr; }
+  .service-card{ height: 220px; }
+
+  /* CONTACT */
+  .contact-hero{ height: 260px; }
+  .contact-hero h1{ font-size: 2rem; }
+  .contact-grid{ grid-template-columns: 1fr; }
+  .contact-info{ grid-template-columns: 1fr; }
+  #contactform{ grid-template-columns: 1fr; }
+
+  /* FOOTER */
+  footer{
+    grid-template-areas:
+      "policy"
+      "right";
+    text-align: center;
+  }
+  #right{ text-align: center; }
+}
